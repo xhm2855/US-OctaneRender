@@ -8,6 +8,7 @@ rm /tmp/fifo
 mkfifo /tmp/fifo
 
 # listen on local 48001 and send to local 48000 
-nc -l -p 48001 < /tmp/fifo | nc -u 192.168.150.50 48000 > /tmp/fifo
+# service running at 48000 needs to be already started!
+nc -l 9000 < /tmp/fifo | nc -u localhost 48000 > /tmp/fifo
 
-echo "listening on port 48001"
+echo "listening on port 9000, forwarding to UDP 48000"
