@@ -10,3 +10,5 @@ mkfifo /tmp/fifo
 
 # listen on local 48000 and send to local 48001 (which is picked up by SSH and forwarded)
 sudo nc -l -u -p 48000 < /tmp/fifo | nc localhost 48001 > /tmp/fifo
+
+echo "listening on UDP 48000, forwarding to 48001 on server"
